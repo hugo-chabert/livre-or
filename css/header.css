@@ -1,0 +1,50 @@
+html,body,main{
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+    position: relative;
+}
+
+.header{
+    background-color: grey;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    font-size: 400%;
+    color: cyan;
+}
+
+.links{
+    display: flex;
+    flex-direction: row;
+    font-size: 150%;
+    justify-content: center;
+    justify-content: space-around;
+}
+
+.linkHeader{
+    text-decoration: none;
+    color: cyan;
+    margin: 1%;
+}
+
+.linkHeader:hover{
+    color: black;
+    animation-name: pulse;
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale3d(1, 1, 1);
+    }
+    50% {
+        transform: scale3d(1.2, 1.2, 1.2);
+    }
+    100% {
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+}
