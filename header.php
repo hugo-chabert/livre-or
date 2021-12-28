@@ -1,7 +1,7 @@
 <link href="css/header.css" rel="stylesheet">
 <header>
     <div class="header">
-            <div class="container">LIVRE D'OR</div>
+            <div class="containerHeader">LIVRE D'OR</div>
             <div class="links">
                 <a href="index.php" class="linkHeader">ACCUEIL</a>
                 <a href="inscription.php" class="linkHeader">INSCRIPTION</a>

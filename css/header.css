@@ -1,3 +1,5 @@
+@import url(root.css);
+
 html,body,main{
     padding: 0;
     margin: 0;
@@ -6,14 +8,14 @@ html,body,main{
 }
 
 .header{
-    background-color: grey;
+    background-color: var(--TyrianPurple-);
 }
 
-.container{
+.containerHeader{
     display: flex;
     justify-content: center;
     font-size: 400%;
-    color: cyan;
+    color: var(--SpanishOrange-);
 }
 
 .links{
@@ -26,12 +28,12 @@ html,body,main{
 
 .linkHeader{
     text-decoration: none;
-    color: cyan;
+    color: var(--SpanishOrange-);
     margin: 1%;
 }
 
 .linkHeader:hover{
-    color: black;
+    color: var(--DarkOrange-);
     animation-name: pulse;
     animation-duration: 0.5s;
     animation-fill-mode: both;
