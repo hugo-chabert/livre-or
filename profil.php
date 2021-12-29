@@ -6,7 +6,7 @@ require 'fonctions.php';
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Profil</title>
 </head>
 <body>
     <?php require 'header.php'?>

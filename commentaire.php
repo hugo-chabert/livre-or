@@ -1,12 +1,16 @@
 <?php
 session_start();
 require 'fonctions.php';
+if(!isset($_SESSION['user'])){
+    header('Location: livre-or.php');
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Ecrire un commentaire</title>
 </head>
 <body>
     <?php require 'header.php'?>
