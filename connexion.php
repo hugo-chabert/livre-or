@@ -18,7 +18,7 @@ require 'fonctions.php';
                 <input type="text" name="login" placeholder="Login"/>
                 <input type="password" name="password" placeholder="Mot de passe"/>
                 <button>Connexion</button>
-                <p class="message">Vous n'avez pas de compte? <a href="inscription.php">Creez un compte</a></p>
+                <p class="message">Vous n'avez pas de compte? <a class="aa" href="inscription.php">Creez un compte</a></p>
             </form>
             <?php connect_user()?>
         </div>

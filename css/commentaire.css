@@ -1,0 +1,28 @@
+@import url(root.css);
+@import url(font.css);
+
+.write_com{
+    display: flex;
+    justify-content: center;
+    padding: 10%;
+}
+
+.commentaire{
+    display: flex;
+    flex-direction: column;
+}
+
+.button {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: var(--TyrianPurple-);
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: var(--SpanishOrange-);
+    font-size: 14px;
+    transition: all 0.3 ease;
+    cursor: pointer;
+    border-radius: 10px;
+}

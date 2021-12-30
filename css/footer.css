@@ -7,7 +7,7 @@ main{
 .footer{
     width: 100%;
     margin: 0;
-    background: var(--SpanishOrange-);
+    background: var(--TyrianPurple-);
     text-align: center;
     display: flex;
     flex-direction: row;
@@ -28,8 +28,8 @@ main{
     justify-content: center;
 }
 .footer2 h2{
-    border-left: 2px solid var(--DarkerSpanishOrange-);
-    border-right: 2px solid var(--DarkerSpanishOrange-);
+    border-left: 2px solid var(--DarkerTyrianPurple-);
+    border-right: 2px solid var(--DarkerTyrianPurple-);
     font-family: Dreams;
     display: flex;
     align-items: center;

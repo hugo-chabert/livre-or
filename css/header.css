@@ -6,6 +6,7 @@ html,body,main{
     margin: 0;
     scroll-behavior: smooth;
     position: relative;
+    background-color: var(--DarkOrange-);
 }
 
 .header{
@@ -18,6 +19,7 @@ html,body,main{
     justify-content: center;
     font-size: 400%;
     color: var(--SpanishOrange-);
+    padding-top: 1%;
 }
 
 .links{

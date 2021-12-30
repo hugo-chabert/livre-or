@@ -1,0 +1,65 @@
+@import url(root.css);
+@import url(font.css);
+
+.containerProfil{
+    display: flex;
+    padding: 7%;
+    justify-content: center;
+}
+
+.container_change{
+    background-color: var(--TyrianPurple-);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 5%;
+    border-radius: 10px;
+}
+
+.change{
+    background-color: var(--LightTyrianPurple-);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    z-index: 1;
+    max-width: 360px;
+    padding: 5%;
+    text-align: center;
+    margin: 0 2% 0 2%;
+    border-radius: 10px;
+}
+
+.input{
+    outline: 0;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 1.1em;
+    letter-spacing: 1px;
+    background-color:var(--LightGrey-);
+    border-radius: 10px;
+    color: var(--Black-);
+}
+
+.text_change{
+    font-family: LittleComet;
+    font-size: 150%;
+    color: var(--SpanishOrange-);
+}
+
+.button{
+    background-color: var(--SpanishOrange-);
+    border: none;
+    color: var(--TyrianPurple-);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+}

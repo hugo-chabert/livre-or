@@ -1,5 +1,7 @@
 :root{
+    --LightTyrianPurple- : #85165a;
     --TyrianPurple- : #5F0F40;
+    --DarkerTyrianPurple- : #470b30;
     --RubyRed- : #9A031E;
     --DarkOrange- : #FB8B24;
     --SpanishOrange- : #E36414;
@@ -9,4 +11,6 @@
     --White- : #FFFFFF;
     --Grey- : #7e7e7e;
     --RedError- : #ff0000;
+    --LightGrey- : #9b9b9b;
+    --LightestGrey- : #d6d6d6;
 }

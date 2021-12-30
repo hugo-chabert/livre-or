@@ -19,10 +19,10 @@ function create_user(){
         }
         else{
             if($login == NULL || $password == NULL || $Cpassword == NULL ) {
-                echo'<p>Remplissez tous les champs</p><style>p{color : var(--RedError-); font-size: 1.4em;}</style>';
+                echo'<p class="erreur">Remplissez tous les champs</p>';
             }
             else if($password != $Cpassword) {
-                echo'<p>Mot de passe Non identique</p><style>p{color : var(--RedError-); font-size: 1.4em;}</style>';
+                echo'<p class="erreur">Mot de passe Non identique</p>';
             }
             else{
                 $requete = mysqli_query($bdd, "INSERT INTO utilisateurs (login, password, id_droits) VALUES ('$login','$password', 1)");
@@ -49,15 +49,15 @@ function connect_user() {
                     exit();
                 }
                 else{
-                    echo 'Mauvais mot de passe';
+                    echo '<p class="erreur">Mauvais mot de passe</p>';
                 }
             }
             else {
-                echo'<p>Compte inexistant</p><style>p{color : var(--RedError-); font-size: 1.4em;}</style>';
+                echo'<p class="erreur">Compte inexistant</p>';
             }
         }
         else {
-            echo'<p>Remplissez tous les champs</p><style>p{color : var(--RedError-); font-size: 1.4em;}</style>';
+            echo'<p class="erreur">Remplissez tous les champs</p>';
         }
     }
 }
@@ -66,6 +66,69 @@ function disconnect(){
     if(isset($_POST['deconnexion'])){
         session_destroy();
         header('Location: index.php');
+        exit();
+    }
+}
+
+function change_login(){
+    $bdd = connect_database();
+    if(!empty($_POST['Nlogin'])){
+        $login = $_SESSION['user']['login'];
+        $Nlogin = $_POST['Nlogin'];
+        $change_login = mysqli_query($bdd,"SELECT * FROM utilisateurs WHERE login = '$login' ");
+        $RowLogin = mysqli_num_rows($change_login);
+        if($RowLogin == 1){
+            $change_login_test = mysqli_query($bdd,"SELECT * FROM utilisateurs WHERE login = '$Nlogin' ");
+            $RowLoginTest = mysqli_num_rows($change_login_test);
+            if($RowLoginTest == 1){
+                echo 'Login déjà existant';
+            }
+            else{
+                $new_login = mysqli_query($bdd, "UPDATE utilisateurs SET login = '$Nlogin' WHERE login = '$login'");
+                session_destroy();
+                header('Location: index.php');
+                exit();
+            }
+        }
+        else{
+            echo '<p class="erreur">Veuillez vous déconnecter votre Login est inexistant</p>';
+        }
+    }
+}
+
+function change_password(){
+    $bdd = connect_database();
+    if(!empty($_POST['password']) && !empty($_POST['Npassword']) && !empty($_POST['CNpassword'])){
+        $login = $_SESSION['user']['login'];
+        $password = $_POST['password'];
+        $Npassword = $_POST['Npassword'];
+        $CNpassword = $_POST['CNpassword'];
+        $change_password = mysqli_query($bdd,"SELECT * FROM utilisateurs WHERE login = '$login' AND password = '$password'");
+        $RowPassword = mysqli_num_rows($change_password);
+        if($RowPassword == 1){
+            if($Npassword == $CNpassword){
+                $new_password = mysqli_query($bdd,"UPDATE utilisateurs SET password = '$Npassword' WHERE login = '$login'");
+                session_destroy();
+                header('Location: index.php');
+                exit();
+            }
+            else{
+                echo '<p class="erreur">Vos nouveau Mot de Passes ne sont pas pareils</p>';
+            }
+        }
+        else{
+            echo '<p class="erreur">Votre ancien Mot de Passe est incorrect</p>';
+        }
+    }
+}
+
+function new_com(){
+    $bdd = connect_database();
+    if(isset($_POST["commentaire"]) && $_POST["commentaire"] != NULL){
+        $commentaire = $_POST['commentaire'];
+        $id_user = $_SESSION['user']['id'];
+        $new_com_request = mysqli_query($bdd, "INSERT INTO commentaires (commentaire, id_utilisateur) VALUES ('$commentaire', '$id_user')");
+        header('Location: livre-or.php');
         exit();
     }
 }
