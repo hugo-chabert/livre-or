@@ -1,6 +1,7 @@
 <?php
 session_start();
 require 'fonctions.php';
+isntConnected();
 ?>
 <!DOCTYPE html>
 <html>

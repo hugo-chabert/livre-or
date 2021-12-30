@@ -1,2 +1,64 @@
 @import url(root.css);
 @import url(font.css);
+
+.text{
+    background-color: var(--TyrianPurple-);
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.go_to_com{
+    font-family: LittleComet;
+    text-decoration: none;
+    font-size: 170%;
+    color: var(--SpanishOrange-);
+    padding-bottom: 1%;
+}
+
+.go_to_com:hover{
+    color: var(--DarkOrange-);
+    animation-name: pulse;
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale3d(1, 1, 1);
+    }
+    50% {
+        transform: scale3d(1.2, 1.2, 1.2);
+    }
+    100% {
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+}
+
+.container_com{
+    font-family: LittleComet;
+    padding: 2%;
+}
+
+.all_com{
+    display: flex;
+    flex-direction: row;
+    height: 100px;
+    padding: 1%;
+}
+
+.com_left{
+    box-shadow: 0 1px 2px  var(--Black-);
+    width: 30%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.com_right{
+    box-shadow: 0 1px 2px  var(--Black-);
+    width: 70%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}

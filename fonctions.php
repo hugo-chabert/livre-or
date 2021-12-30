@@ -113,11 +113,11 @@ function change_password(){
                 exit();
             }
             else{
-                echo '<p class="erreur">Vos nouveau Mot de Passes ne sont pas pareils</p>';
+                echo '<p class="erreur">Vos nouveau mots de passe ne correspondent pas</p>';
             }
         }
         else{
-            echo '<p class="erreur">Votre ancien Mot de Passe est incorrect</p>';
+            echo '<p class="erreur">Votre ancien mots de passe est incorrect</p>';
         }
     }
 }
@@ -133,4 +133,109 @@ function new_com(){
     }
 }
 
+function display_com(){
+    $bdd = connect_database();
+    $request_com = mysqli_query($bdd, "SELECT * FROM commentaires");
+    $fetch = mysqli_fetch_all($request_com, MYSQLI_ASSOC);
+    foreach($fetch AS $com){
+        ?>  <div class="all_com">
+                <div class="com_left">
+                    <?php
+                        $id_utilisateur = $com['id_utilisateur'];
+                        $request_user = mysqli_query($bdd, "SELECT * FROM utilisateurs WHERE id ='$id_utilisateur'");
+                        $fetch2 = mysqli_fetch_all($request_user, MYSQLI_ASSOC);
+                        foreach($fetch2 AS $us){
+                            if($us['id'] == $id_utilisateur){
+                                echo 'Commentaire écrit par : '.$us['login'].'</br> le '.$com['date'];
+                                break;
+                            }
+                        }
+                    ?>
+                </div>
+        <?php
+        ?>      <div class="com_right">
+                    <?php echo $com['commentaire'];?>
+                </div>
+            </div>
+<?php
+    }
+}
+
+function display_all_users(){
+    $bdd = connect_database();
+    $request_all_user = mysqli_query($bdd, 'SELECT * FROM utilisateurs');
+    $fetch_users = mysqli_fetch_all($request_all_user, MYSQLI_ASSOC);
+    ?>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Login</th>
+                </tr>
+            </thead>
+            <tbody>
+    <?php
+    foreach($fetch_users AS $fu){
+        echo '<tr><td>'.$fu['id'].'</td>';
+        echo '<td>'.$fu['login'].'</td></tr>';
+    }
+    ?>
+            </tbody>
+        </table>
+    <?php
+}
+
+function delete_user(){
+    $bdd = connect_database();
+    if(isset($_POST['id'])){
+        $id = $_POST['id'];
+        if($id != NULL){
+            $request_id = mysqli_query($bdd, "SELECT * FROM utilisateurs WHERE id = '$id'");
+            $row_id = mysqli_num_rows($request_id);
+            if($row_id == 1){
+                if($id != $_SESSION['user']['id']){
+                    $delete_user = mysqli_query($bdd, "DELETE FROM utilisateurs WHERE id = '$id'");
+                    $delete_com = mysqli_query($bdd, "DELETE FROM commentaires WHERE id_utilisateur = '$id'");
+                    header('Location: admin.php');
+                    exit();
+                }
+                else{
+                    echo '<p class="erreur">Vous ne pouvez pas supprimer votre compte ici</p>
+                        <p class="erreur">Allez dans <a href="profil.php" class="profilFun" >profil<a> si vous voulez vraiment supprimer votre compte</p>';
+                }
+            }
+            else{
+                echo '<p class="erreur">Cet utilisateur est inexistant</p>';
+            }
+        }
+        else{
+            echo '<p class="erreur">Veuillez entrer un ID</p>';
+        }
+    }
+}
+
+function delete_account(){
+    $bdd = connect_database();
+    if(isset($_POST['delete'])){
+        $id = $_SESSION['user']['id'];
+        $delete_account = mysqli_query($bdd, "DELETE FROM utilisateurs WHERE id = '$id'");
+        session_destroy();
+        header('Location: index.php');
+        exit();
+    }
+}
+
+function isConnected(){
+    if(!isset($_SESSION['user']['login'])){
+        header('Location: index.php');
+        exit();
+    }
+}
+
+function isntConnected(){
+    if(isset($_SESSION['user']['login'])){
+        header('Location: profil.php');
+        exit();
+    }
+}
 ?>

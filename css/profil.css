@@ -10,10 +10,15 @@
 .container_change{
     background-color: var(--TyrianPurple-);
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     padding: 5%;
     border-radius: 10px;
+}
+
+.oui{
+    display: flex;
+    flex-direction: row;
 }
 
 .change{
@@ -51,6 +56,12 @@
     color: var(--SpanishOrange-);
 }
 
+.text_change2{
+    font-family: LittleComet;
+    font-size: 125%;
+    color: var(--DarkOrange-);
+}
+
 .button{
     background-color: var(--SpanishOrange-);
     border: none;
@@ -62,4 +73,40 @@
     font-size: 16px;
     border-radius: 10px;
     cursor: pointer;
+}
+
+.buttonRED{
+    background-color: var(--RedError-);
+    border: none;
+    color: var(--Black-);
+    padding: 15px 32px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 2%;
+}
+
+table, td, th {
+    border: 1px solid black;
+}
+
+td{
+    width: 200px;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.profilFun{
+    text-decoration: none;
+    color: var(--SpanishOrange-);
+}
+
+.profilFun:hover{
+    color: var(--DarkOrange-);
 }

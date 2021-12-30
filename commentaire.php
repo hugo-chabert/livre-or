@@ -1,10 +1,7 @@
 <?php
 session_start();
 require 'fonctions.php';
-if(!isset($_SESSION['user'])){
-    header('Location: livre-or.php');
-    exit();
-}
+isConnected();
 ?>
 <!DOCTYPE html>
 <html>
