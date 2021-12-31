@@ -15,6 +15,10 @@ isConnected();
 <main>
     <div class="containerProfil">
         <div class="container_change">
+            <form action="" method="post">
+                <button class="buttonCom" name="go_to_com">Vos commentaires</button></br>
+                <?php go_to_com();?>
+            </form>
             <div class="oui">
                 <div class="change">
                     <p class="text_change">Changez votre login</p>

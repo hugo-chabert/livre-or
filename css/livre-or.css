@@ -62,3 +62,31 @@
     display: flex;
     align-items: center;
 }
+
+.deco_del{
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    color: var(--RedError-);
+    font-size: 100%;
+    font-family: LittleComet;
+}
+
+.deco_del:hover{
+    animation-name: pulse;
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale3d(1, 1, 1);
+    }
+    50% {
+        transform: scale3d(1.2, 1.2, 1.2);
+    }
+    100% {
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+}

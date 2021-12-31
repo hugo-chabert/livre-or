@@ -238,4 +238,65 @@ function isntConnected(){
         exit();
     }
 }
+
+function go_to_com(){
+    if(isset($_POST['go_to_com'])){
+        header('Location: mes_commentaires.php');
+        exit();
+    }
+}
+
+function show_com(){
+    $bdd = connect_database();
+    $id_user = $_SESSION['user']['id'];
+    $request_my_com = mysqli_query($bdd, "SELECT * FROM commentaires WHERE id_utilisateur = '$id_user'");
+    $fetch_coms = mysqli_fetch_all($request_my_com, MYSQLI_ASSOC);
+    $Rows_num_com = mysqli_num_rows($request_my_com);
+    if($Rows_num_com != 0){
+        ?>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Commentaires</th>
+                    </tr>
+                </thead>
+                <tbody>
+        <?php
+        foreach($fetch_coms AS $fc){
+            echo '<tr><td>'.$fc['id'].'</td>';
+            echo '<td>'.$fc['commentaire'].'</td></tr>';
+        }
+        ?>
+                </tbody>
+            </table>
+        <?php
+    }
+    else{
+        echo "<p class='text_change2'>Vous n'avez écrit aucun commentaire.</p>";
+    }
+}
+
+function delete_com(){
+    $bdd = connect_database();
+    if(isset($_POST['id'])){
+        $id = $_POST['id'];
+        if($id != NULL){
+            $id_user = $_SESSION['user']['id'];
+            $request_id = mysqli_query($bdd, "SELECT * FROM commentaires WHERE id = '$id' AND id_utilisateur = '$id_user'");
+            $row_id = mysqli_num_rows($request_id);
+            if($row_id == 1){
+                $delete_user = mysqli_query($bdd, "DELETE FROM commentaires WHERE id = '$id' AND id_utilisateur = '$id_user'");
+                header('Location: mes_commentaires.php');
+                exit();
+            }
+            else{
+                echo '<p class="erreur">Ce commentaire est inexistant</p>';
+            }
+        }
+        else{
+            echo '<p class="erreur">Veuillez entrer un ID</p>';
+        }
+    }
+}
 ?>

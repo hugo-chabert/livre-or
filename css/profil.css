@@ -85,7 +85,21 @@
     font-size: 16px;
     border-radius: 10px;
     cursor: pointer;
-    margin-top: 2%;
+    margin-top: 4%;
+}
+
+.buttonCom{
+    background-color: var(--SpanishOrange-);
+    border: none;
+    color: var(--TyrianPurple-);
+    padding: 15px 32px;
+    margin-bottom: 4%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 table, td, th {
