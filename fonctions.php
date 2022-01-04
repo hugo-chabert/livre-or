@@ -1,7 +1,7 @@
 <?php
 
 function connect_database(){
-    $bdd =  mysqli_connect('localhost', 'hugo-chabertLO', 'Chabert13', 'livreor');
+    $bdd =  mysqli_connect('localhost', 'hugo-chabertLO', 'Chabert13', 'hugo-chabert_livreor');
     mysqli_set_charset($bdd, 'utf8');
     return $bdd;
 }
