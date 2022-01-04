@@ -135,7 +135,7 @@ function new_com(){
 
 function display_com(){
     $bdd = connect_database();
-    $request_com = mysqli_query($bdd, "SELECT * FROM commentaires");
+    $request_com = mysqli_query($bdd, "SELECT * FROM commentaires ORDER BY DESC");
     $fetch = mysqli_fetch_all($request_com, MYSQLI_ASSOC);
     foreach($fetch AS $com){
         ?>  <div class="all_com">
